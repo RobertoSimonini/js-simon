@@ -32,20 +32,20 @@ const message = document.getElementById('message');
 
 // Setto il setInterval per far scorrere il timer ogni secondo 
 const christmasTimer = setInterval(() => {
-    // Creo una costante la data odierna 
+    // Creo una costante per la data odierna 
     const currentDate = new Date();
 
     // Creo una costante con il giorno di natale 
-    const  christmasDate = new Date(currentDate.getFullYear(), 11, 25);
+    const  christmasDate = new Date("December 25, 2022").getTime();
 
     // Calcolo i millisecondi che mi separano da oggi a Natale 
-    const secondsUntilChristmas = (christmasDate.getTime() - currentDate.getTime()) / 1000;
+    const distance = christmasDate - currentDate;
 
     // Calcolo il tempo rimanente per ciascun valore
-    let days = Math.floor(secondsUntilChristmas / 86400);
-    let hours = Math.floor((secondsUntilChristmas % 86400) / 3600);
-    let minutes = Math.floor(((secondsUntilChristmas % 86400) % 3600) / 60);
-    let seconds = Math.floor(((secondsUntilChristmas % 86400) % 3600) % 60);
+    let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
     // Aggiungo lo 0 davanti ai valori minori di 10
     if (days < 10) {
@@ -69,8 +69,8 @@ const christmasTimer = setInterval(() => {
 
     // Creo un messaggio quando il Coutndwon sarà finito e blocco il timer
     if (secondsUntilChristmas = 0) {
-        message.innerText = "Tanti auguri di buon Natale!!";
         clearInterval(christmasTimer);
+        message.innerText = "Tanti auguri di buon Natale!!";
     }
 }, 1000);
 
