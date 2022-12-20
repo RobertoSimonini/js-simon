@@ -68,7 +68,7 @@ const christmasTimer = setInterval(() => {
     secondsElement.innerHTML = seconds;
 
     // Creo un messaggio quando il Coutndwon sarà finito e blocco il timer
-    if (secondsUntilChristmas = 0) {
+    if (distance < 0) {
         clearInterval(christmasTimer);
         message.innerText = "Tanti auguri di buon Natale!!";
     }
