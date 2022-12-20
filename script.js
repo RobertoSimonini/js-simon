@@ -28,7 +28,7 @@ const daysElement = document.getElementById('days');
 const hoursElement = document.getElementById('hours');
 const minutesElement = document.getElementById('minutes');
 const secondsElement = document.getElementById('seconds');
-const message = documet.getElementById('message');
+const message = document.getElementById('message');
 
 // Setto il setInterval per far scorrere il timer ogni secondo 
 const christmasTimer = setInterval(() => {
@@ -69,10 +69,8 @@ const christmasTimer = setInterval(() => {
 
     // Creo un messaggio quando il Coutndwon sarà finito e blocco il timer
     if (secondsUntilChristmas = 0) {
-        clearInterval(christmasTimer);
         message.innerText = "Tanti auguri di buon Natale!!";
+        clearInterval(christmasTimer);
     }
-
-
 }, 1000);
 
